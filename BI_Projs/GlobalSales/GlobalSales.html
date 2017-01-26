@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Global Sales Manager Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- The fullowing grabs us Bootstrap for use.-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> <!--Bootstrap--> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> <!--Font Awesome's Brand Icons-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!--End of Bootstrap call-->
+  <link rel="stylesheet" type="text/css" href="//ctrios67.github.io/CSS/Personal.css">
+</head>
+
+<body class="chris">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-brand">ctrios67</div>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="//ctrios67.github.io/">Home</a></li>
+          <li><a href="//ctrios67.github.io/Navigation/About.html">About Me</a></li>
+          <li><a href="//ctrios67.github.io/Navigation/Experience.html">Experience</a></li>
+          <li class="active"><a href="//ctrios67.github.io/Navigation/Projects.html">Projects</a></li>
+        </ul>
+      </div>
+  </nav>
+  <div class="container-fluid centering">
+    <h1>Global Sales Manager Dashboard</h1>
+  </div>
+  <div class="container-fluid divpara"> <!--Intro-->
+    <h5>Introduction:</h5>
+    <p>This is my first personal project. It is a dashboard containing 5 widgets, envisioned for a Global Sales Manager. On this page you will find the dashboard widgets in order of appearance, a description of what <em>tables</em> and <em>columns</em> were used, an explanation of what you are looking at, and a list of business questions they answer. <p><small>Note: The widgets with maps are interactive and tell more information when a circle is clicked. I (unfortunately) did not manage to capture of photo of this during my free trail of this software.</small></p></p>
+    <h5>Tools Used:</h5>
+    <ul>
+      <li>BI Tool: <a class="linkz" href="//www.sisense.com/">SiSense</a></li>
+      <li>SQL: TSQL via <a class="linkz" href="//www.microsoft.com/en-us/download/details.aspx?id=29062">SQL Server 2012 Express</a></li>
+      <li>Database (Sample): <a class="linkz" href="//northwinddatabase.codeplex.com/">Northwind</a></li>
+    </ul>
+    <h5>Custom Tables Created:</h5>
+    <ul>
+      <li>Americas_Customer: The rationale behind the creation is that I realized that including City, Region, and Country from Customers created anomalies or missing data from widgets due to data conflicts. Resolved by realizing Region mainly reflected most of North America and South America. Argentina and Mexico were still missing though, so I adjusted the WHERE clause accordingly.</li>
+      <li>Europe_Customers: Realized that wherever Region was Null, the customer was likely in Europe, so I just excluded entries where Country was Mexico and Argentina, and now we have a table with every European customer.</li>
+    </ul>
+  </div>
+  <br>
+  <div class="container-fluid">
+    <h4 class="centering">1.) Customers per Country Measuring Total Sales</h4>
+    <img class="img-responsive centering" src="/Photos/CustomersPerCountry.jpg" alt="Customers per Country Measuring Total Sales"></img>
+  </div>
+  <br>
+  <div class="container-fluid centering">
+      <h4>This dashboard widget uses:</h4>
+      <ul class="nonugly">
+        <li>Orders->ShipCountry</li>
+        <li>Orders->Subtotal</li>
+        <li>Orders->CustomerID</li>
+        <li>[Order Details]->OrderID</li>
+      </ul>
+      <br>
+      <p class="projstyle">This paints a picture of how sales throughout the globe are for countries. We have the number of customers per country given by the size of the circles, <span class="verde">green</span> indicates sales are above the total company average, <span class="amarillo">yellow</span> represents below the average. Yellow doesn't necessarily signify failure, it's a point of interest, over time the user will be familiar to the slower selling countries and choose to be content with their sales or not. Clicking on the circles shows how many customers exist in that country.</p>
+      <h4>Answers the following questions:</h4>
+      <ul class="nonugly">
+        <li>What countries lead sales?</li>
+        <li>How many customers are located in (country)?</li>
+        <li>Is there anything to improve upon (country)'s sales?</li>
+      </ul>
+  </div>
+  <br>
+  <div class="container-fluid" style="text-align: center">
+    <h4 style="text-align: center">2.) Category Sales 97 vs. 98</h4>
+    <img class="img-responsive" src="/Photos/Sales97vs98.jpg" alt="Category Sales 97 vs. 98" style="margin: 0 auto"></img>
+  </div>
+  <br>
+  <div class="container-fluid centering">
+      <h4>This dashboard widget uses:</h4>
+      <ul class="nonugly">
+        <li>[Sales by Category]->CategoryName</li>
+        <li>[Order Subtotals]->Subtotals</li>
+        <li>Orders->ShippedDate</li>
+      </ul>
+      <br>
+      <p class="projstyle">Shows how sales by category are trending from 1997 to 1998. <em>In retrospect</em> I should've switched the axes for readibility. We see a downward trend here, and in the next few dashboard widgets we can conclude as to why.</p>
+      <h4>Answers the following questions:</h4>
+      <ul class="nonugly">
+        <li>What are category sales for (given year) versus (given year LY)?</li>
+        <li>What product categories are leaders?</li>
+        <li>What are the lowest selling product categories?</li>
+      </ul>
+  </div>
+  <br>
+  <div class="container-fluid centering">
+    <h4 class="centering">3.) Supplier In Stock vs. On Order (Worldwide)</h4>
+    <img class="img-responsive centering" src="/Photos/SupplierStock.jpg" alt="Supplier Stock Worldwide"></img>
+  </div>
+  <br>
+  <div class="container-fluid centering">
+    <h4>This dashboard widget uses:</h4>
+    <ul class="nonugly">
+      <li>Suppliers->City</li>
+      <li>Suppliers->Country</li>
+      <li>Products->UnitsOnOrder</li>
+      <li>Products->UnitsInStock</li>
+      <li>Suppliers->CompanyName</li>
+    </ul>
+    <br>
+    <p class="projstyle">This here shows the user whether demand is being met by suppliers and their location around the world. Suppliers not meeting stock are in Red, suppliers having zero stock is in <span class="amarillo">yellow</span> (again not necessarily bad, just a point of interest), and suppliers meeting or exceeding demand is in <span class="verde">green</span>.</p>
+    <h4>Answers the following questions:</h4>
+    <ul class="nonugly">
+      <li>What suppliers are meeting or exceeding demand?</li>
+      <li>What suppliers are not meeting demand?</li>
+      <li>Is there anything to be done with suppliers having 0 orders on demand?</li>
+    </ul>
+  </div>
+  <br>
+  <div class="container-fluid centering">
+    <h4 class="centering">4.) Total Sales by American Customers</h4>
+    <img class="img-responsive centering" src="/Photos/TotSalesAmericas.jpg" alt="Total sales in North and South America"></img>
+  </div>
+  <br>
+  <div class="container-fluid" style="text-align: center">
+    <h4>This dashboard widget uses:</h4>
+      <ul class="nonugly">
+        <li>Americas_Customer->City</li>
+        <li>Americas_Customer->Region</li>
+        <li>Americas_Customer->Country</li>
+        <li>Products->ProductName</li>
+        <li>[Order Subtotals]->Subtotal</li>
+      </ul>
+    <br>
+      <p class="projstyle">Shown here are sales leaders in North and South America along with how diversified a client's Northwind product purchases are. This brings customer locations by city, showing where they reside and how big of a presence they have in that market. Size of the circle indicates sales, <span class="verde">green</span> indicates they purchase many different products, <span class="gris">gray</span> is an average amount, and <span class="rojo">red</span> is small number of unique purchases.</p>
+      <h4>Answers the following questions:</h4>
+      <ul class="nonugly">
+        <li>Which customers are best sellers?</li>
+        <li>Could high sales of one customer affect nearby customers with lower sales count?</li>
+        <li>Should we explore customers who buy a low amount of our different products having a need for others?</li>
+        <li>Are supplier issues playing any part in low sales?</li>
+      </ul>
+  </div>
+  <br>
+  <div class="container-fluid centering">
+    <h4 class="centering">5.) Total Sales by European Customers</h4>
+    <img class="img-responsive centering" src="/Photos/TotSalesEurope.jpg" alt="Total sales in Europe"></img>
+  </div>
+  <br>
+  <div class="container-fluid centering">
+    <h4>This dashboard widget uses:</h4>
+      <ul class="nonugly">
+        <li>Europe_Customers->City</li>
+        <li>Europe_Customers->Region</li>
+        <li>Europe_Customers->Country</li>
+        <li>Products->ProductName</li>
+        <li>[Order Subtotals]->Subtotal</li>
+      </ul>
+    <br>
+    <p class="projstylec">Similar to the American customer widget except in Europe. Looks to answer similar business questions.</p>
+    <h4>Answers the following questions:</h4>
+    <ul class="nonugly">
+        <li>Which customers are best sellers?</li>
+        <li>Could high sales of one customer affect nearby customers with lower sales count?</li>
+        <li>Should we explore customers who buy a low amount of our different products having a need for others?</li>
+        <li>Why are many customers not buying any of our other products?</lI>
+        <li>Are supplier issues playing any part in low sales?</li>
+      </ul>
+  </div>
+  <br>
+  <hr>
+  <div class="container-fluid linkz">
+    <h4>Contact:</h4>
+    <span>Github: </span><a class="linkz" href="//github.com/ctrios67"><i class="fa fa-github linkz"></i></a>
+    <span class="linkz">Linkedin: </span><a class="linkz" href="//www.linkedin.com/in/christian-rios-a74583101"><i class="fa fa-linkedin linkz""></i></a>
+  </div>
+  <br>
+</body>
+</html>
