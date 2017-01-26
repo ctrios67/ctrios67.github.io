@@ -48,6 +48,10 @@
     color: yellow;
   }
   /*End of span styles*/
+
+  h1.fontz{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+  }
   
   /*Normal paragraph styling to not touch the edges of pages*/
   .divpara{
