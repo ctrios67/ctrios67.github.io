@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Chris' Projects</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- The following grabs us Bootstrap for use.-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> <!--Bootstrap--> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> <!--Font Awesome's Brand Icons-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!--End of Bootstrap call-->
+  <link rel="stylesheet" type="text/css" href="//ctrios67.github.io/CSS/Personal.css">
+</head>
+
+<body class="chris">
+  <nav class="navbar navbar-inverse"> <!--This gives us Bootstrap's custom navbar in my favorite theme-->
+    <div class="container-fluid">  <!--This ensures the div handles responsively-->
+      <div class="navbar-header"> <!--Responsive Branding for the Navbar-->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <!--Button for the Branding-->
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-brand">ctrios67</div> <!-- Branding style -->
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar"> <!-- Navbar collapse for mobile -->
+        <ul class="nav navbar-nav"> <!-- Dropdown menu for handling mobile situations-->
+          <li><a href="//ctrios67.github.io/">Home</a></li> <!-- List for mobile-->
+          <li><a href="//ctrios67.github.io/Navigation/About.html">About Me</a></li>
+          <li><a href="//ctrios67.github.io/Navigation/Experience.html">Experience</a></li>
+          <li class="active"><a href="//ctrios67.github.io/Navigation/Projects.html">Projects</a></li>
+        </ul>
+      </div>
+    </nav>
+  <div class="container-fluid centering">
+    <h1 class="fontz">NYC Jobs Analysis</h1>
+    <p>Courtesy of the following Data: <a href="https://data.cityofnewyork.us/City-Government/NYC-Jobs/kpav-sd4t/">NYC Job Listings Dataset</a></p>
+    <p>To view this on the tableau site: <a href="//public.tableau.com/profile/chris.rios4068#!/">Click here!</a></p>
+    <br>
+  </div>
+  <div class="container-fluid centering mobileHide">
+      <div class='tableauPlaceholder container' id='viz1485549589046'>
+        <noscript>
+          <a href='#'>
+          <img class="img-responsive" alt='NYC Job Agency Story ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;NY&#47;NYC_Job_Postings&#47;NYCJobAgencyStory&#47;1_rss.png' style='border: none' />
+          </a>
+        </noscript>
+        <object class='tableauViz'  style='display:none;'>
+          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+          <param name='site_root' value='' />
+          <param name='name' value='NYC_Job_Postings&#47;NYCJobAgencyStory' />
+          <param name='tabs' value='no' />
+          <param name='toolbar' value='yes' />
+          <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;NY&#47;NYC_Job_Postings&#47;NYCJobAgencyStory&#47;1.png' /> 
+          <param name='animate_transition' value='yes' />
+          <param name='display_static_image' value='yes' />
+          <param name='display_spinner' value='yes' />
+          <param name='display_overlay' value='yes' />
+          <param name='display_count' value='yes' />
+          <param name='useGuest' value='true' />
+        </object>
+      </div>                
+      <script type='text/javascript'>                    
+      var divElement = document.getElementById('viz1485549589046');                    
+      var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1020px';
+      vizElement.style.height='1033px';                    
+      var scriptElement = document.createElement('script');                    
+      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+      </script>
+  </div>
+  <div class="container-fluid centering">
+    <h3>1.) Job Openings per Agency Worksheet:</h3>
+    <p>Here we can see that the Department of Health/Mental Hygiene has the most jobs available. I just summed the # positions and sorted accordingly.</p>
+  </div>
+  <br>
+
+  <div class="container-fluid" style="border: solid white 1px">
+  <h4 class="centering">A note on the following 2 worksheets:</h4>
+  <p>The data separates position pay by 3 dimensions, Annually, Hourly, and Daily. This needs to be taken care of, so I thought of 2 things. I can create 3 visualizations converting each to abide by Annual, and display them on a dashboard, but if you’re a business user, you want everything simplistic and fast. This answers the business question, but is not a practical implementation.<p>
+
+  <p>So I went with my second idea, create assumptions based on the data, create new calculated fields converting the different pay types into annual, and display them at once.</p>
+
+  <p>Assumptions:</p>
+  <ol>
+  <li>Daily pay works 5 days a week on average.</li>
+  <li>Since hourly ranges from 35-40 based on the data, on average they work 37.5 hours.</li> 
+  </ol>
+  <br>
+
+  <p>The code pictured below shows how I implemented these assumptions into a new calculated field.</p>
+  <code class="chris">IF [Salary Frequency]="Daily" <br>
+    THEN ([Salary Range From]*5)*52<br>
+    ELSEIF  [Salary Frequency]="Hourly"<br>
+    THEN ([Salary Range From]*37.5)*52<br>
+    ELSEIF [Salary Frequency]="Annual"<br>
+    THEN [Salary Range From]<br>
+    END
+  </code>
+  <br> <!-- Why is this necessary?-->
+  <br>
+  <p>Notice the last is an ELSEIF, this is necessary because otherwise you’ll be conflicting with the hourly and daily again if it was just ELSE. A similar logic is implemented for Highest Paying, but switching [Salary Range From] for [Salary Range To].</p>
+  </div>
+  <div class="container-fluid">
+    <h3 class="centering">2.) Lowest Paying Agency Worksheet:</h3>
+    <p class="left">Here we see that technically, the Consumer Affairs agency has a job offering the lowest pay, but if you look at the data and find this entry, the job description asks for 5+ years of experience. I <strong>highly</strong> doubt a person with 5 years of experience will take a job for free.</p>
+
+    <p class="left">With that in mind, the agency with the lowest paying job is the Department of Design & Construction.</p>
+  </div>
+  <div class="container-fluid">
+    <h3 class="centering">3.) Highest Paying Agency Worksheet:</h3>
+    <p class="left">Here the pay needs to be converted like before and a similar logic needs to be implemented for a new calculated field. No anomaly this time though, and we clearly see the Highest Paying agency is the Department of Mental Health/Hygiene. A medical field to no surpise.</p>
+  </div>
+  <div class="container-fluid">
+    <h3 class="centering">4.) Hardest Jobs to Fill:</h3>
+    <p class="left">This is my personal analysis. I created another custom field called “Years Posted.” To make this one I took the date the job was posted, the date a job was supposed to be posted until, and if that end date was null, I made it the process by date, since it was in January of 2017 and seemed like a nice basis. I subtracted [Post Until] from [Posting Date] while handling nulls of [Post Until], and having a distinct count as the result was hard to interpret because they are datetimes, giving me results between 1 and 6 which made sense, and would make sense to a user.</p>
+
+    <p class="left">With this, I colorized the departments by their oldest job postings, <span class="rojo">red</span> signifies older, <span class="verde">green</span> signifies more recent. The size of the agency is determined by the # of positions, and hovering over the agency shows their lowest salary available.</p>
+
+    <p class="left">My argument is, the agencies with the most jobs open AND the oldest job postings tend to offer the lowest salaries. This visualization exemplifies this analysis by my annotations. As lowest salaries get higher, job positions are significantly lower, showing they are not having trouble filling positions. The verdict is still out though on job postings where the salary is low and positions are low and the years posted is recent. One would measure this going further to see if this point stands true.</p>
+  </div>
+
+  <hr>
+  <div class="container-fluid linkz">
+    <h4>Contact:</h4>
+    <span>Github: </span><a class="linkz" href="//github.com/ctrios67"><i class="fa fa-github linkz"></i></a>
+    <span class="linkz">Linkedin: </span><a class="linkz" href="//www.linkedin.com/in/christian-rios-a74583101"><i class="fa fa-linkedin linkz"></i></a>
+  </div>
+  <br>
+</body>
+</html>
