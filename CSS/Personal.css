@@ -1,3 +1,8 @@
+  @media only screen
+  and min-device-width(320px)
+  and max-device-width(480px)
+  .mobileHide { display: none;}
+
   /*My favorite style piggy backing off of Night-Mode in RES for Reddit*/
   .chris{
     background-color: rgb(38, 38, 38);
