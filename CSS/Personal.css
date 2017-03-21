@@ -18,6 +18,12 @@
     margin: 0 auto;
     border: solid white 1px;
   }
+
+  iframe.centering{
+    margin: 0 auto;
+    border: solid white 1px;
+  }
+
   table.centering{
     margin: 0 auto;
   }
