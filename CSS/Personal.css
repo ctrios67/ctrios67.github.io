@@ -19,14 +19,14 @@
     border: solid white 1px;
   }
 
-  #wrapper {
-    text-align: center;
+  div.wrappingMap{
+    max-width: 80%;
   }
 
-  #wrapper iframe{
-    display: inline-block;
+  iframe.myMap{
+    margin-left: 20%;
   }
-
+  
   table.centering{
     margin: 0 auto;
   }
