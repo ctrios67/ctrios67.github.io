@@ -15,12 +15,12 @@
   }
 
   img.centering{
-    position: absolute;
     margin: 0 auto;
     border: solid white 1px;
   }
 
   iframe.centering{
+    position: absolute;
     margin: 0 auto;
     border: solid white 1px;
   }
