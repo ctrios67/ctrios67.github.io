@@ -8,12 +8,12 @@
     background-color: rgb(38, 38, 38);
     color: white;
   }
-  
+
   /* I tend to center stuff a lot*/
   .centering{
     text-align: center;
   }
-  
+
   img.centering{
     margin: 0 auto;
     border: solid white 1px;
@@ -21,34 +21,34 @@
   table.centering{
     margin: 0 auto;
   }
-  
+
   th.centering{
     text-align: center;
   }
-  
+
   td.centering{
     text-align: center;
   }
   /*end of centering*/
-  
+
   td.left{
     text-align: left;
     margin: 0 auto;
   }
-  
+
   /*Span styles*/
   span.verde{
     color: green;
   }
-  
+
   span.rojo{
     color: red;
   }
-  
+
   span.gris{
     color: gray;
   }
-  
+
   span.amarillo{
     color: yellow;
   }
@@ -57,63 +57,71 @@
   h1.fontz{
     font-family: "Comic Sans MS", cursive, sans-serif;
   }
-  
+
   /*Normal paragraph styling to not touch the edges of pages*/
   .divpara{
     margin-left: 10%;
     margin-right: 10%;
   }
-  
+
   .projstyle{
     margin-left: 10%;
     margin-right: 10%;
     text-align: left;
   }
-  
+
   .projstylec{
     margin-left: 10%;
     margin-right: 10%;
     text-align: center;
   }
-  
+
   /*This makes lists not appear weird*/
   ol.nonugly{
     display: table;
     margin: 0 auto;
     text-align: left;
   }
-  
+
   ul.nonugly{
     display: table;
     margin: 0 auto;
     text-align: left;
   }
   /* Ugly lists */
-  
+
   /*Links abiding by my style*/
   a.linkz{
     color: white;
     text-decoration: underline;
     }
-   
+
    a:hover.linkz{
     color: rgb(155,155,155);
   }
-    
+
   a:visited.linkz{
     color: rgb(155, 155, 155);
     text-decoration: underline;
   }
-  
+
+  iframe:focus {
+    outline: none;
+  }
+
+  iframe[seamless] {
+    display: block;
+  }
+
   div.linkz{
     display: block;
     text-align: center;
     }
-    
+
     i.linkz{
       font-size: 17px;
     }
-    
+
     span.linkz{
       padding-left: 1%;
     }
