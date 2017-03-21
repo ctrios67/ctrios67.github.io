@@ -19,14 +19,6 @@
     border: solid white 1px;
   }
 
-  #wrapper {
-    text-align: center;
-  }
-
-  #wrapper iframe{
-    display: inline-block;
-  }
-
   table.centering{
     margin: 0 auto;
   }
