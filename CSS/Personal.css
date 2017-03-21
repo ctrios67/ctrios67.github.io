@@ -19,10 +19,12 @@
     border: solid white 1px;
   }
 
-  iframe.centering{
-    margin-left: 20%;
-    margin: 0 auto;
-    border: solid white 1px;
+  #wrapper {
+    text-align: center;
+  }
+
+  #wrapper iframe{
+    display: inline-block;
   }
 
   table.centering{
