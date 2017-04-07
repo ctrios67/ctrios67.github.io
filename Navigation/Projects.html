@@ -27,7 +27,6 @@
         <ul class="nav navbar-nav"> <!-- Dropdown menu for handling mobile situations-->
           <li><a href="//ctrios67.github.io/">Home</a></li> <!-- List for mobile-->
           <li><a href="//ctrios67.github.io/Navigation/About.html">About Me</a></li>
-          <li><a href="//ctrios67.github.io/Navigation/Experience.html">Experience</a></li>
           <li class="active"><a href="//ctrios67.github.io/Navigation/Projects.html">Projects</a></li>
         </ul>
       </div>
@@ -46,30 +45,38 @@
   <div class="container-fluid centering">
     <h3>Python:</h3>
     <ol class="nonugly">
-      <li><a class="linkz" href="//github.com/ctrios67/Python/blob/master/Actual%20Programs/mcb.pyw">Multi-Clipboard Program</a>
-        <p>This is a program ran on the command line that accesses the user's clipboard, and saves the entire
-        contents as a keyword to be used in the future for a repetitive copy/pasting task. The user can list the current saved keywords,
-        save a new one, or delete an existing one. I find this pretty useful for repetitive SQL queries.</p></li>
-      <li><a class="linkz" href="//github.com/ctrios67/Python/blob/master/Actual%20Programs/productivity.py">Website Blocker</a>
-        <p>This a program that blocks distracting social media sites during working hours to increase productivity. It's pretty
-          easy to get side tracked, so I find it useful. I schedule it to run daily on my personal PC via crontab.</p></li>
-      <li><a class="linkz" href="//github.com/ctrios67/Python/blob/master/Actual%20Programs/Folium/foliumExample.py">Volcano & Population Identifier</a>
+      <li><a class="linkz" href="//github.com/ctrios67/Python/blob/master/ActualPrograms/OpenCV_App/plotting.py">Motion Detector & Plotter via OpenCV</a>
+        <p>This is a motion detecting program that opens your video camera (likely your built-in one, not externals), detects motion differences, highlights them with boxes,
+          and also captures the times there was motion in the video capture into a csv file. Then the saved times are grabbed from the CSV file and
+          plotted on a time series graph.</p>
+      </li>
+      <li><a class="linkz" href="//github.com/ctrios67/Python/tree/master/ActualPrograms/BookDB">Book Store Database Program</a>
+        <p>This is an application simulating a bookstore's database. It has a frontend User Interface built via <a class="linkz" href="//wiki.python.org/moin/TkInter">tkinter</a> in Python,
+          and a backend built via Python using SQLite. The user can view entries, add an entry, search for an entry, delete an entry,
+          update an entry, or close the program via the interface.</p>
+        <p><a class="linkz" href="//github.com/ctrios67/Python/blob/master/ActualPrograms/BookDB/frontend.py">Front End Code</a></p>
+        <p><a class="linkz" href="//github.com/ctrios67/Python/blob/master/ActualPrograms/BookDB/backend.py">Back End Code</a></p>
+      </li>
+      <li><a class="linkz" href="//github.com/ctrios67/Python/blob/master/ActualPrograms/Folium/volcanoLeaflet.py">Volcano & Population Identifier</a>
         <p>This program utilizes the <a class="linkz" href="//folium.readthedocs.io/en/latest/">Folium</a> & <a class="linkz" href="pandas.pydata.org/">Pandas</a> Python Modules to generate a HTML leaflet map that has a list of
           Volcanoes in the United States, and color coded populations of countries throughout the world. The volcano data is grabbed from the volcano text file within the directory. The population
           borders are made using a geojson file that can also be found in the directory.</p>
+      </li>
     </ol>
   </div>
   <div class="container-fluid centering">
     <h3>Web Development:</h3>
     <ol class="nonugly">
       <li><a class="linkz" href="//ctrios67.github.io/">This Website!</a></li>
+      <li><a class="linkz" href"//real-portfolio.herokuapp.com/"> This same website hosted via Heroku!</a>
+        <p>This is the same website built via Flask in Python. The front end is HTML, CSS, and JavaScript. Backend is Python.<p>
+      </li>
     </ol>
     <h3>Programming Repos:</h3>
     <ol class="nonugly">
       <li><a class="linkz" href="//github.com/ctrios67/Python">My Python Repo</a></li>
       <li><a class="linkz" href="//github.com/ctrios67/HTML/">My HTML Repo</a></li>
       <li><a class="linkz" href="//github.com/ctrios67/cpp/">My C++ Repo</a></li>
-      <li><a class="linkz" href="//github.com/ctrios67/JavaScript/">My JS Repo</a></li>
     </ol>
   </div>
   <hr>
