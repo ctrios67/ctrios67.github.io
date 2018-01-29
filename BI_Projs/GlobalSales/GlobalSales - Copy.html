@@ -34,41 +34,31 @@
   <div class="container-fluid centering">
     <h1 class="fontz">Global Sales Manager Dashboard</h1>
   </div>
-  <div class="container-fluid divpara"> <!--Intro-->
+  <div class="container-fluid divpara">
     <h5>Introduction:</h5>
-    <p>This is my first personal project. It is a dashboard containing 5 widgets, envisioned for a Global Sales Manager.
-      On this page you will find the dashboard widgets in order of appearance, a description of what <em>tables</em> and
-      <em>columns</em> were used, an explanation of what you are looking at, and a list of business questions they answer.
-      <p><small>Note: The widgets with maps are interactive and tell more information when a circle is clicked. I
-        (unfortunately) did not manage to capture of photo of this during my free trail of this software.</small></p></p>
+    <p>This is my first personal project that I have ever done. It is a dashboard containing 5 widgets, envisioned for a Global Sales Manager.</p>
     <h5>Tools Used:</h5>
     <ul>
       <li>BI Tool: <a class="linkz" href="//www.sisense.com/">SiSense</a></li>
       <li>SQL: TSQL via <a class="linkz" href="//www.microsoft.com/en-us/download/details.aspx?id=29062">SQL Server 2012 Express</a></li>
       <li>Database (Sample): <a class="linkz" href="//northwinddatabase.codeplex.com/">Northwind</a></li>
     </ul>
-    <h5>Custom Tables Created:</h5>
-    <ul>
-      <li>Americas_Customer: The rationale behind the creation is that I realized that including City, Region, and Country from Customers created anomalies or missing data from widgets due to data conflicts. Resolved by realizing Region mainly reflected most of North America and South America. Argentina and Mexico were still missing though, so I adjusted the WHERE clause accordingly.</li>
-      <li>Europe_Customers: Realized that wherever Region was Null, the customer was likely in Europe, so I just excluded entries where Country was Mexico and Argentina, and now we have a table with every European customer.</li>
-    </ul>
   </div>
   <br>
   <div class="container-fluid">
-    <h4 class="centering">1.) Customers per Country Measuring Total Sales</h4>
+    <h4 class="centering">1.) Customers per Country</h4>
     <img class="img-responsive centering" src="//ctrios67.github.io/BI_Projs/GlobalSales/Photos/CustomersPerCountry.jpg" alt="Customers per Country Measuring Total Sales"></img>
   </div>
   <br>
   <div class="container-fluid centering">
-      <h4>This dashboard widget uses:</h4>
-      <ul class="nonugly">
-        <li>Orders->ShipCountry</li>
-        <li>Orders->Subtotal</li>
-        <li>Orders->CustomerID</li>
-        <li>[Order Details]->OrderID</li>
-      </ul>
       <br>
-      <p class="projstyle">This paints a picture of how sales throughout the globe are for countries. We have the number of customers per country given by the size of the circles, <span class="verde">green</span> indicates sales are above the total company average, <span class="amarillo">yellow</span> represents below the average. Yellow doesn't necessarily signify failure, it's a point of interest, over time the user will be familiar to the slower selling countries and choose to be content with their sales or not. Clicking on the circles shows how many customers exist in that country.</p>
+      <p class="projstyle">This paints a picture of how sales throughout the globe are for countries. We have the number of customers per country given by the
+        size of the circles.
+        <ul>
+          <li><span class="verde">green</span> indicates sales are above the total company average, <span class="amarillo">yellow</span>
+        represents below the average.</li>
+          <li>Yellow doesn't necessarily signify failure, it's a point of interest, as there will always be a yellow circle.</li>
+      Clicking on the circles shows how many customers exist in that country.</p>
       <h4>Answers the following questions:</h4>
       <ul class="nonugly">
         <li>What countries lead sales?</li>
